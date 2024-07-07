@@ -1,0 +1,16 @@
+.container-pro{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.item-product{
+    width: 350px;
+    height:630px
+}
+.item-product img{
+    height: 300px;
+    width:100%
+}
+.product-img {
+    width: 100px;
+}
