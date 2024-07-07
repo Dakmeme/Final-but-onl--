@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="login-signup.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <div class="container">
+    <div class="borgor">
+      <div class="box signIn">
+        <h2>Already Have An Account?</h2>
+        <button class="signInbut">Sign in</button>
+      </div>
+      <div class="box signUp">
+        <h2>Don't Have An Account?</h2>
+        <button class="signUpbut">Sign up</button>
+      </div>
+    </div>
+    <div class="formborgor">
+      <div class="form signInform">
+        <form>
+          <h3>Sign In</h3>
+          <input type="text" placeholder="Username" id="login_username">
+          <input type="password" placeholder="Password" id="login_password">
+          <input type="submit" value="Login" id="Login">
+          <a href="#" class="forgoring">Forgor your password?</a>
+        </form>
+      </div>
+
+      <div class="form signUpform">
+        <form>
+          <h3>Sign Up</h3>
+          <input type="text" placeholder="Username" id="username">
+          <input type="password" placeholder="Password" id="password">
+          <input type="password" placeholder="Confirm your password" id="repassword">
+          <input type="submit" value="Register" id="Register">
+        </form>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const signInbut = document.querySelector('.signInbut');
+      const signUpbut = document.querySelector('.signUpbut');
+      const formborgor = document.querySelector('.formborgor');
+      const borgor = document.querySelector('.borgor');
+
+      signUpbut.addEventListener('click', function () {
+        formborgor.classList.add('active');
+        borgor.classList.add('active');
+      });
+
+      signInbut.addEventListener('click', function () {
+        formborgor.classList.remove('active');
+        borgor.classList.remove('active');
+      });
+
+      document.getElementById('Register').addEventListener('click', function (event) {
+        event.preventDefault();
+
+        const username = document.getElementById('username').value;
+        const psw = document.getElementById('password').value;
+        const repsw = document.getElementById('repassword').value;
+
+        if (!username.length || !psw.length || !repsw.length) {
+          alert("Please fill in all fields");
+        } else if (repsw !== psw) {
+          alert("Passwords do not match");
+        } else {
+          let users = JSON.parse(localStorage.getItem("users")) || [];
+
+          let userExists = users.some(user => user.name === username);
+
+          if (!userExists) {
+            users.push({
+              name: username,
+              psw: psw,
+            });
+            localStorage.setItem("users", JSON.stringify(users));
+            alert("Registration successful");
+          } else {
+            alert("Username already exists");
+          }
+        }
+      });
+      document.getElementById('Login').addEventListener('click', function (event) {
+      event.preventDefault();
+
+      const username = document.getElementById('login_username').value;
+      const psw = document.getElementById('login_password').value;
+
+      if (!username.length || !psw.length) {
+        alert("Please fill in both username and password fields");
+      } else {
+        let users = JSON.parse(localStorage.getItem("users")) || [];
+
+        let user = users.find(user => user.name === username && user.psw === psw);
+
+        if (user) {
+          alert("Login successful");
+          window.location.href = "index.html"
+        } else {
+          alert("Invalid username or password");
+        }
+      }
+    });
+    });
+
+
+  </script>
+</body>
+
+</html>
