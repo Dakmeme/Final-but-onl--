@@ -2,6 +2,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    gap:30px
 }
 .item-product{
     width: 350px;
@@ -9,8 +10,23 @@
 }
 .item-product img{
     height: 300px;
-    width:100%
+    width:268.4px;
+    overflow: hidden;
 }
 .product-img {
     width: 100px;
+}
+.item-product h3{
+    height: 75px;}
+.item-product p{
+    height:149px}
+.stars i{
+    color:#ff9c1a
+}
+.clientsl_text h3{
+    display: flex;
+    justify-content: space-between
+}
+.carousel-item{
+    height:314px
 }
