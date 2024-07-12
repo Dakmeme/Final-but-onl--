@@ -1,7 +1,7 @@
       let htmlProducts = "";
 
       fetch(
-         "https://api.myjson.online/v1/records/1160a138-c2b7-4fae-a7ca-0523a3ffcc54"
+         "https://api.myjson.online/v1/records/a94db9b2-d33d-46ef-85b6-42b7418e85b8"
       )
          .then((res) => res.json())
          .then((response) => {
@@ -9,9 +9,6 @@
             for (let i = 0; i < response.data.length; i++) {
                // for (let i = 0; i < 1; i++) {
                htmlProducts += `
-            
-           
-               
                   <div class="item-product">
                      <div id="bo_ho" class="we_box text_align_left">
                         <i><img src="${response.data[i].picture}" alt="#" /></i>
@@ -21,7 +18,9 @@
                      <span class="food-price">
                         ${response.data[i].price}
                      </span>
-                     <button class="food-but" data-id="${response.data[i].id}" data-Name="${response.data[i].name}" data-img="${response.data[i].picture}" data-price="${response.data[i].price}" >Add to cart</button>
+                    <button class="food-but" data-id="${response.data[i].id}" data-Name="${response.data[i].name}" data-img="${response.data[i].picture}" data-price="${response.data[i].price}" >
+   Add to cart
+</button>
                   </div>
                </div>
                              `; 
@@ -45,6 +44,13 @@
                   cartItems.push({ id: productId, quantity: 1, name: productName, img: productimg, price: productPrice })
                }
                localStorage.setItem('cartItems', JSON.stringify(cartItems));
-               alert(`Thêm thành công`)
+               Swal.fire({
+                  position: "top-end",
+                  icon: "success",
+                  title: "The item has been added",
+                  showConfirmButton: false,
+                  timer: 500
+                });
+                
             }
          });

@@ -40,15 +40,6 @@
       <div class="header">
          <div class="container-fluid">
             <div class="row d_flex">
-               <div class=" col-md-2 col-sm-3 col logo_section">
-                  <div class="full">
-                     <div class="center-desk">
-                        <div class="logo">
-                           <a href="index.html"><img src="images/logo.png" alt="#" /></a>
-                        </div>
-                     </div>
-                  </div>
-               </div>
                <div class="col-md-8 col-sm-9">
                   <nav class="navigation navbar navbar-expand-md navbar-dark ">
                      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04"
@@ -63,16 +54,16 @@
                            <li class="nav-item">
                               <a class="nav-link" href="about.html">About</a>
                            </li>
-                           <li class="nav-item active">
+                           <li class="nav-item ">
                               <a class="nav-link" href="we_do.html">Product</a>
                            </li>
-                           <li class="nav-item">
+                           <!-- <li class="nav-item">
                               <a class="nav-link" href="portfolio.html">Portfolio </a>
-                           </li>
+                           </li> -->
                            <li class="nav-item">
                               <a class="nav-link" href="contact.html">Contact Us</a>
                            </li>
-                           <li class="nav-item">
+                           <li class="nav-item active">
                               <a class="nav-link" href="cart.html">Cart</a>
                            </li>
                         </ul>
@@ -81,7 +72,7 @@
                </div>
                <div class="col-md-2 d_none">
                   <ul class="email text_align_right">
-                     <li> <a href="Javascript:void(0)"> Login </a></li>
+                     <li> <a href="login.html"> Login </a></li>
                      <li> <a href="Javascript:void(0)"> <i class="fa fa-search" style="cursor: pointer;"
                               aria-hidden="true"> </i></a> </li>
                   </ul>
@@ -91,12 +82,11 @@
       </div>
    </header>
    <!-- end header -->
-   <!-- we_do -->
    <div class="cart">
       <table id="Tbcart" class="table">
         <thead>
           <tr>
-            <th style="border:none; width:100px; background-color: rgb(153,13,35);">STT</th>
+            <th style="width:100px">STT</th>
             <th >Pic</th>
             <th>Items</th>
             <th>Quantity</th>
@@ -108,7 +98,6 @@
         </tbody>
       </table>
     </div>
-   <!-- end we_do -->
    <!-- footer -->
    <footer>
       <div class="footer">
@@ -228,7 +217,7 @@ let htmlCart=""
             <td><span class="total-price">$ ${
               cart[i].price * cart[i].quantity
             }</span></td></td>
-            <td > <button class="delete-btn" data-id="${cart[i].id}" data-name="${cart[i].name}"> X</button></td>
+            <td > <button class="delete-btn" data-id="${cart[i].id}" data-name="${cart[i].name}"> Delete</button></td>
           </tr>
         `;
     }
