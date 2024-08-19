@@ -1,7 +1,6 @@
-      let htmlProducts = "";
-
+let htmlProducts = "";
       fetch(
-         "https://api.myjson.online/v1/records/a94db9b2-d33d-46ef-85b6-42b7418e85b8"
+         "https://api.myjson.online/v1/records/c2882435-95b2-479d-8059-1c5929062365"
       )
          .then((res) => res.json())
          .then((response) => {
@@ -23,7 +22,7 @@
 </button>
                   </div>
                </div>
-                             `; 
+                             ` ; 
     }
             document.getElementById("product").innerHTML = htmlProducts;
             let addToCartBut = document.getElementsByClassName("food-but");
